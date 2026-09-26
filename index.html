@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visibility and Obligation — Research Proposal</title>
+<style>
+  :root{
+    --ink:#1c1b19;
+    --paper:#f7f5f1;
+    --paper-dim:#eeebe4;
+    --line:#d8d3c8;
+    --accent:#8a3b2e;
+    --accent-soft:#c9917f;
+    --serif:'Iowan Old Style','Palatino Linotype',Georgia,serif;
+    --sans:'Helvetica Neue',Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+  }
+  .wrap{
+    max-width:760px;
+    margin:0 auto;
+    padding:0 28px;
+  }
+  header.hero{
+    padding:96px 0 64px;
+    border-bottom:1px solid var(--line);
+  }
+  header.hero .kicker{
+    font-family:var(--sans);
+    font-size:13px;
+    letter-spacing:.02em;
+    color:var(--accent);
+    margin-bottom:18px;
+  }
+  header.hero h1{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:40px;
+    line-height:1.25;
+    margin:0 0 20px;
+    max-width:14ch;
+  }
+  header.hero p.meta{
+    font-size:15px;
+    color:#5a564e;
+    margin:0;
+  }
+  nav.jump{
+    position:sticky;
+    top:0;
+    background:var(--paper);
+    border-bottom:1px solid var(--line);
+    z-index:10;
+    padding:14px 0;
+  }
+  nav.jump .wrap{
+    display:flex;
+    gap:22px;
+    overflow-x:auto;
+    max-width:760px;
+  }
+  nav.jump a{
+    font-size:13px;
+    color:#5a564e;
+    text-decoration:none;
+    white-space:nowrap;
+    border-bottom:2px solid transparent;
+    padding-bottom:4px;
+  }
+  nav.jump a:hover, nav.jump a:focus{
+    color:var(--accent);
+    border-bottom-color:var(--accent);
+  }
+  section{
+    padding:72px 0;
+    border-bottom:1px solid var(--line);
+  }
+  section:last-of-type{border-bottom:none;}
+  section .label{
+    font-family:var(--sans);
+    font-size:13px;
+    color:var(--accent);
+    margin:0 0 14px;
+  }
+  section h2{
+    font-family:var(--serif);
+    font-weight:400;
+    font-size:28px;
+    margin:0 0 28px;
+    max-width:20ch;
+  }
+  section p{
+    font-size:17px;
+    max-width:66ch;
+    margin:0 0 18px;
+    color:#2b2926;
+  }
+  .callout{
+    background:var(--paper-dim);
+    border-left:3px solid var(--accent);
+    padding:20px 24px;
+    margin:24px 0;
+    font-family:var(--serif);
+    font-size:18px;
+    line-height:1.55;
+  }
+  .grid2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+    margin:24px 0;
+  }
+  .cell{
+    border:1px solid var(--line);
+    padding:18px 20px;
+  }
+  .cell .tag{
+    font-size:12px;
+    color:var(--accent);
+    margin-bottom:8px;
+  }
+  .cell p{margin:0;font-size:15px;}
+  ol.sources{
+    padding-left:20px;
+    margin:0;
+  }
+  ol.sources li{
+    font-size:16px;
+    margin-bottom:18px;
+    max-width:66ch;
+  }
+  .placeholder{
+    border:1px dashed var(--accent-soft);
+    padding:20px 22px;
+    font-size:15px;
+    color:#7a5a51;
+    font-style:italic;
+  }
+  footer{
+    padding:48px 0 80px;
+    font-size:13px;
+    color:#8a8579;
+  }
+  @media (max-width:640px){
+    header.hero{padding:64px 0 40px;}
+    header.hero h1{font-size:30px;}
+    section{padding:52px 0;}
+    .grid2{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="kicker">PLS 360 — Research Proposal, Part One</div>
+    <h1>Does visibility create obligation?</h1>
+    <p class="meta">TikTok posting frequency and the felt duty to share discrimination against women — Nazarbayev University</p>
+  </div>
+</header>
+
+<nav class="jump">
+  <div class="wrap">
+    <a href="#question">Question</a>
+    <a href="#positioning">Positioning</a>
+    <a href="#contribution">Contribution</a>
+    <a href="#literature">Literature</a>
+    <a href="#theory">Theory &amp; Hypotheses</a>
+    <a href="#ai">AI Transparency</a>
+    <a href="#reflection">Reflection</a>
+  </div>
+</nav>
+
+<section id="question">
+  <div class="wrap">
+    <p class="label">Research Question</p>
+    <h2>The question driving this study</h2>
+    <div class="callout">
+      Does regular TikTok posting among female Nazarbayev University students increase their sense of obligation to share instances of discrimination against women on social media?
+    </div>
+    <p>The question is scoped to female NU students who currently use TikTok, and asks about their present, day-to-day experience of the platform — not a historical period or a single triggering event.</p>
+  </div>
+</section>
+
+<section id="positioning">
+  <div class="wrap">
+    <p class="label">Epistemological Positioning</p>
+    <h2>Why this is a positivist study</h2>
+    <p>This study treats "sense of obligation" as an observable, measurable attitude that varies systematically with an identifiable independent variable — posting frequency — rather than as a meaning that must be interpreted contextually. The hypothesis below specifies a directional relationship and a discrete causal mechanism, which calls for an epistemological stance that treats social reality as governed by regularities that can be tested against evidence, generalized across a defined population, and potentially falsified.</p>
+    <p>Practically, this fits the design: female NU students can be grouped by posting frequency, and their self-reported obligation can be measured and compared across groups using consistent survey items — an approach that assumes attitudes can be operationalized and compared, the core commitment of positivism.</p>
+  </div>
+</section>
+
+<section id="contribution">
+  <div class="wrap">
+    <p class="label">Contribution</p>
+    <h2>What this study adds</h2>
+    <p>Existing research treats platform "engagement" as a broad, undifferentiated category. This study isolates one specific behavior — posting frequency — as a predictor of one specific attitude — felt obligation to share discrimination content — allowing a more precise test of the visibility-to-responsibility mechanism than prior work has offered.</p>
+    <p>It also extends a literature built almost entirely on Western, Southeast Asian, South Asian, and Chinese contexts to a Central Asian university population, a setting with a distinct social and political environment around gender discourse that has received little attention. Together, these moves test whether a mechanism observed elsewhere holds in a setting where public discussion of gender discrimination carries different social risks.</p>
+  </div>
+</section>
+
+<section id="literature">
+  <div class="wrap">
+    <p class="label">Literature Review</p>
+    <h2>Five studies this proposal builds on</h2>
+    <ol class="sources">
+      <li><strong>Literat &amp; Kligler-Vilenchik (2023)</strong>, on youth political expression on TikTok, establish the platform as a legitimate space for political voice among young people — but stop short of explaining why individual users feel compelled to use that voice.</li>
+      <li><strong>National Communication Association study on TikTok and Black political consumerism</strong> links frequent platform use to activism orientation and racial identity, suggesting engagement is bound up with self-perception — the same identity logic this study applies to gender.</li>
+      <li><strong>"It's Viral!" (ACM, TikTok activism motivations)</strong> notes prior work documents that TikTok hosts activist content but not why some users produce it over others — the exact gap this study's IV/DV design targets.</li>
+      <li><strong>#YesAllWomen research (Humanities &amp; Social Sciences Communications)</strong> shows that sharing discrimination content on social media is socially costly — met with both support and backlash — establishing "obligation to share" as a meaningful outcome worth explaining, not a neutral one.</li>
+      <li><strong>Vachhani (2024), networked feminism</strong> describes how visibility within digital feminist activism becomes tied to a felt duty toward other women — the broader phenomenon this study operationalizes into a testable mechanism.</li>
+    </ol>
+  </div>
+</section>
+
+<section id="theory">
+  <div class="wrap">
+    <p class="label">Theory and Hypotheses</p>
+    <h2>The mechanism and the hypothesis</h2>
+    <div class="grid2">
+      <div class="cell">
+        <div class="tag">Independent Variable</div>
+        <p>Frequency of TikTok posting — regular posters vs. infrequent posters</p>
+      </div>
+      <div class="cell">
+        <div class="tag">Dependent Variable</div>
+        <p>Self-reported sense of obligation to share gendered-discrimination content on social media</p>
+      </div>
+    </div>
+    <div class="callout">
+      H1: Female NU students who post regularly on TikTok will report a stronger sense of obligation to share instances of discrimination against women on social media than those who post infrequently.
+    </div>
+    <p><strong>Causal mechanism:</strong> Frequent posting builds a visible online audience and identity. That visibility fosters a self-perception of "having a platform," which creates an internalized responsibility to use that platform for causes the poster cares about — here, gendered discrimination — producing a stronger felt obligation to share such content.</p>
+  </div>
+</section>
+
+<section id="ai">
+  <div class="wrap">
+    <p class="label">AI Transparency Statement</p>
+    <h2>How AI was used (~30 seconds)</h2>
+    <div class="placeholder">
+      Placeholder — replace with your own honest account before presenting. Cover: (1) how you used AI while developing the proposal itself (e.g. sharpening the research question, finding/checking literature, building the hypothesis and mechanism), and (2) how you used AI to build this page (e.g. structuring content, writing the HTML/CSS, publishing to GitHub Pages). Be specific about what you changed or rejected from AI suggestions.
+    </div>
+  </div>
+</section>
+
+<section id="reflection">
+  <div class="wrap">
+    <p class="label">Ungraded</p>
+    <h2>What working with AI helped me understand — and what I still don't</h2>
+    <div class="placeholder">
+      Placeholder — this section is ungraded and exists to show your thinking, so write it yourself. Consider: what clicked for you about your research design while working with AI (e.g. the difference between positivist and interpretivist framing, or how to state a causal mechanism precisely)? What are you still unsure about (e.g. how to actually operationalize "sense of obligation" in a survey, or whether your mechanism is the right one)?
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    PLS 360 — Research Proposal, Part One
+  </div>
+</footer>
+
+</body>
+</html>
