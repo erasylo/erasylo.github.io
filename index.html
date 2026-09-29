@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Visibility and Obligation — Research Proposal</title>
+<style>
+  :root{
+    --ink:#12181c;
+    --paper:#fdfdfb;
+    --paper-dim:#eaf2f5;
+    --line:#c9d4d8;
+    --accent:#0f6fb0;
+    --accent-soft:#5fa8d3;
+    --serif:'Iowan Old Style','Palatino Linotype',Georgia,serif;
+    --sans:'Helvetica Neue',Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  html,body{
+    margin:0;
+    height:100%;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    line-height:1.6;
+    overflow:hidden;
+  }
+  .slide{
+    position:fixed;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:8vh 10vw;
+    opacity:0;
+    visibility:hidden;
+    transform:scale(.97) translateY(10px);
+    transition:opacity .4s ease, transform .4s ease;
+  }
+  .slide.active{
+    opacity:1;
+    visibility:visible;
+    transform:scale(1) translateY(0);
+  }
+  .slide .label{
+    font-size:20px;
+    letter-spacing:.02em;
+    color:var(--accent);
+    margin:0 0 26px;
+  }
+  .slide h1, .slide h2{
+    font-family:var(--serif);
+    font-weight:400;
+    margin:0 0 36px;
+  }
+  .slide h1{
+    font-size:64px;
+    line-height:1.2;
+    max-width:15ch;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .slide h2{
+    font-size:44px;
+    line-height:1.25;
+    max-width:18ch;
+    margin-left:auto;
+    margin-right:auto;
+  }
+  .slide p{
+    font-size:24px;
+    max-width:64ch;
+    margin:0 auto 22px;
+    color:var(--ink);
+    opacity:.9;
+  }
+  .slide p.meta{
+    font-family:var(--sans);
+    font-size:20px;
+    color:var(--accent-soft);
+    margin-top:0;
+    opacity:1;
+  }
+  .callout{
+    background:var(--paper-dim);
+    border-left:4px solid var(--accent);
+    padding:28px 32px;
+    margin:24px auto;
+    font-family:var(--serif);
+    font-size:26px;
+    line-height:1.5;
+    max-width:68ch;
+    text-align:left;
+  }
+  .grid2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:26px;
+    margin:10px auto 26px;
+    max-width:68ch;
+    text-align:left;
+  }
+  .cell{
+    border:1px solid var(--line);
+    padding:22px 24px;
+  }
+  .cell .tag{
+    font-size:15px;
+    color:var(--accent);
+    margin-bottom:10px;
+  }
+  .cell p{margin:0;font-size:19px;}
+  .cell p.placeholder-inline{color:var(--accent); font-style:italic; opacity:.85;}
+  ol.sources{
+    padding-left:24px;
+    margin:0 auto;
+    max-width:68ch;
+    text-align:left;
+  }
+  ol.sources li{
+    font-size:20px;
+    margin-bottom:18px;
+  }
+  .placeholder{
+    border:1px dashed var(--accent-soft);
+    padding:24px 26px;
+    font-size:19px;
+    color:var(--accent);
+    font-style:italic;
+    max-width:68ch;
+    margin:0 auto;
+    text-align:left;
+  }
+  .progress{
+    position:fixed;
+    bottom:22px;
+    right:28px;
+    font-size:13px;
+    color:#8a8579;
+    z-index:20;
+  }
+  .dots{
+    position:fixed;
+    bottom:22px;
+    left:28px;
+    display:flex;
+    gap:8px;
+    z-index:20;
+  }
+  .dots span{
+    width:7px;
+    height:7px;
+    border-radius:50%;
+    background:var(--line);
+    display:block;
+  }
+  .dots span.active{
+    background:var(--accent);
+  }
+  .hint{
+    position:fixed;
+    bottom:22px;
+    left:0;
+    right:0;
+    text-align:center;
+    font-size:12px;
+    color:#8a8579;
+    z-index:19;
+    pointer-events:none;
+  }
+  .topbar{
+    position:fixed;
+    top:0; left:0; right:0;
+    height:4px;
+    background:var(--paper-dim);
+    z-index:25;
+  }
+  .topbar .fill{
+    height:100%;
+    background:var(--accent);
+    width:0%;
+    transition:width .35s ease;
+  }
+  .slide::before{
+    content:attr(data-num);
+    position:absolute;
+    top:6vh;
+    right:6vw;
+    font-family:var(--serif);
+    font-size:120px;
+    color:var(--paper-dim);
+    z-index:-1;
+    line-height:1;
+  }
+  @media (max-width:640px){
+    .slide::before{font-size:64px; top:3vh; right:5vw;}
+  }
+  @media (max-width:640px){
+    .slide{padding:6vh 7vw;}
+    .slide h1{font-size:40px;}
+    .slide h2{font-size:30px;}
+    .slide p, .callout{font-size:19px;}
+    .grid2{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<section class="slide active">
+  <div class="label">PLS 360 — Research Proposal, Part One</div>
+  <h1>Does visibility create obligation?</h1>
+  <p class="meta">TikTok posting frequency and the felt duty to share discrimination against women — Nazarbayev University</p>
+</section>
+
+<section class="slide">
+  <div class="label">Research Question</div>
+  <h2>The question driving this study</h2>
+  <div class="callout">
+    Does regular TikTok posting among female Nazarbayev University students increase their sense of obligation to share instances of discrimination against women on social media?
+  </div>
+  <p>Scoped to female NU students who currently use TikTok, asking about their present, day-to-day experience of the platform — not a historical period or a single triggering event.</p>
+</section>
+
+<section class="slide">
+  <div class="label">Why It Matters</div>
+  <h2>Why this question, why now</h2>
+  <p>TikTok has become the platform where young women's political and social voice is most visible, yet almost nothing asks whether using it more shapes how responsible they feel for speaking up on gendered discrimination.</p>
+  <p>At NU specifically, this hasn't been asked at all — a Central Asian university setting where public discourse on gender carries different norms than the Western contexts most research is built on.</p>
+</section>
+
+<section class="slide">
+  <div class="label">Epistemological Positioning</div>
+  <h2>Why this is a positivist study</h2>
+  <p>"Sense of obligation" is treated as an observable, measurable attitude that varies systematically with an identifiable independent variable — posting frequency — rather than a meaning that must be interpreted contextually. The hypothesis specifies a directional relationship and a discrete causal mechanism, calling for a stance that treats social reality as governed by regularities that can be tested, generalized, and potentially falsified.</p>
+  <p>Practically: students can be grouped by posting frequency, and their self-reported obligation measured and compared across groups using consistent survey items — an approach that assumes attitudes can be operationalized and compared.</p>
+</section>
+
+<section class="slide">
+  <div class="label">Contribution</div>
+  <h2>What this study adds</h2>
+  <p>Existing research treats platform "engagement" as a broad, undifferentiated category. This study isolates one specific behavior — posting frequency — as a predictor of one specific attitude — felt obligation to share discrimination content — allowing a more precise test of the visibility-to-responsibility mechanism than prior work has offered.</p>
+  <p>It also extends a literature built almost entirely on Western, Southeast Asian, South Asian, and Chinese contexts to a Central Asian university population, a setting with a distinct social and political environment around gender discourse.</p>
+</section>
+
+<section class="slide">
+  <div class="label">Literature Review · 1 of 2</div>
+  <h2>TikTok, voice, and identity</h2>
+  <ol class="sources">
+    <li><strong>Literat &amp; Kligler-Vilenchik (2023)</strong> establish TikTok as a legitimate space for youth political voice, shaped by the platform's affordances and meme culture — but not why individual users feel compelled to use that voice.</li>
+    <li><strong>Li (2024)</strong>, on TikTok and Black political consumerism, links frequent platform use to activism orientation and racial identity reformation — the same identity-investment logic this study applies to gender.</li>
+    <li><strong>Le Compte &amp; Klug (2021)</strong>, "It's Viral!," interview TikTok social activists and note prior work hadn't explained why some users produce activist content over others — the exact gap this study's IV/DV design targets.</li>
+  </ol>
+</section>
+
+<section class="slide">
+  <div class="label">Literature Review · 2 of 2</div>
+  <h2>Sharing discrimination, and the gap</h2>
+  <ol class="sources">
+    <li><strong>Kaufman et al. (2025)</strong>, on #YesAllWomen, show that sharing discrimination content draws both support and backlash — establishing "obligation to share" as a costly, meaningful outcome, not a neutral one.</li>
+    <li><strong>Vachhani (2024)</strong>, on networked feminism, describes visibility becoming tied to a felt duty toward other women — the broader phenomenon this study operationalizes into a testable mechanism.</li>
+  </ol>
+  <p><strong>The gap:</strong> none of these studies test whether posting frequency itself predicts felt obligation, and none look at a Central Asian university population.</p>
+</section>
+
+<section class="slide">
+  <div class="label">The Mechanism</div>
+  <h2>How the effect is supposed to work</h2>
+  <div class="grid2" style="grid-template-columns:1fr; gap:6px;">
+    <div class="cell">Frequent TikTok posting</div>
+    <div style="color:var(--accent-soft); font-size:22px;">↓</div>
+    <div class="cell">Builds a visible online audience and identity</div>
+    <div style="color:var(--accent-soft); font-size:22px;">↓</div>
+    <div class="cell">Fosters a self-perception of "having a platform"</div>
+    <div style="color:var(--accent-soft); font-size:22px;">↓</div>
+    <div class="cell">Creates internalized responsibility to use it for causes one cares about</div>
+    <div style="color:var(--accent-soft); font-size:22px;">↓</div>
+    <div class="cell"><strong>Stronger felt obligation to share discrimination content</strong></div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="label">Theory and Hypotheses</div>
+  <h2>The hypothesis</h2>
+  <div class="grid2">
+    <div class="cell">
+      <div class="tag">Independent Variable</div>
+      <p>Frequency of TikTok posting — regular vs. infrequent posters</p>
+    </div>
+    <div class="cell">
+      <div class="tag">Dependent Variable</div>
+      <p>Self-reported sense of obligation to share gendered-discrimination content</p>
+    </div>
+  </div>
+  <div class="callout">
+    H1: Female NU students who post regularly on TikTok will report a stronger sense of obligation to share instances of discrimination against women on social media than those who post infrequently.
+  </div>
+</section>
+
+<section class="slide">
+  <div class="label">AI Transparency Statement</div>
+  <h2>How AI was used (~30 seconds)</h2>
+  <div class="grid2" style="text-align:left;">
+    <div class="cell">
+      <div class="tag">On the proposal</div>
+      <p>AI helped me move from a vague topic to a scoped question, pushed back when my first wording was causal but framed as interpretivist, and helped me pick and defend a specific causal mechanism. It also helped me find and summarize five real sources — I checked each citation myself.</p>
+    </div>
+    <div class="cell">
+      <div class="tag">On this page</div>
+      <p>AI built the HTML/CSS structure and the slide-navigation script, and revised it based on my feedback — full-screen slides instead of scrolling, brighter colors, larger text, centered layout, and the progress bar and slide numbers for visual identity.</p>
+    </div>
+  </div>
+  <p style="font-size:19px; opacity:.75;">The research question, hypothesis, mechanism, and every source are mine to explain and defend.</p>
+</section>
+
+<section class="slide">
+  <div class="label">Ungraded</div>
+  <h2>What working with AI helped me understand — and what I still don't</h2>
+  <div class="grid2" style="text-align:left;">
+    <div class="cell">
+      <div class="tag">Clearer now</div>
+      <p>The difference between a causal question and a meaning-making one — my first draft mixed positivist wording with interpretivist framing. Also: a hypothesis needs a named mechanism, not just a predicted direction.</p>
+    </div>
+    <div class="cell">
+      <div class="tag">Still unresolved</div>
+      <p>Whether "having a platform" is really the right mechanism, or whether something else (peer pressure, algorithm exposure) explains the link better. I also don't yet know how I'll operationalize "sense of obligation" in a survey instrument.</p>
+    </div>
+  </div>
+</section>
+
+<section class="slide">
+  <div class="label">References</div>
+  <h2>Works cited</h2>
+  <ol class="sources" style="font-size:16px;">
+    <li>Kaufman, M. R., Wright, K., Shin, R., Ohene-Kyei, E. T., Fatoki, O., Karver, T. S., Aguirre, C., Dredze, M., &amp; Zirikly, A. (2025). The power of social media activism in the #YesAllWomen movement. <em>Humanities and Social Sciences Communications, 12</em>(1), 1–11.</li>
+    <li>Le Compte, D., &amp; Klug, D. (2021). "It's viral!" — A study of the behaviors, practices, and motivations of TikTok social activists. <em>arXiv:2106.08813</em>.</li>
+    <li>Li, M. (2024). TikTok and Black political consumerism: Investigating how TikTok use is linked to Black Americans' activism and identity. <em>Journal of International and Intercultural Communication</em>.</li>
+    <li>Literat, I., &amp; Kligler-Vilenchik, N. (2023). Youth collective political expression on TikTok: The role of platform affordances and memetic culture. <em>Social Media + Society, 9</em>(1), 1–13.</li>
+    <li>Vachhani, S. J. (2024). Networked feminism in a digital age — mobilizing vulnerability and reconfiguring feminist politics in digital activism. <em>Gender, Work and Organization, 31</em>(3), 1031–1048.</li>
+  </ol>
+</section>
+
+<section class="slide">
+  <div class="label">PLS 360 — Research Proposal, Part One</div>
+  <h1>Thank you</h1>
+  <p class="meta">Questions welcome</p>
+</section>
+
+<div class="topbar"><div class="fill"></div></div>
+<div class="dots"></div>
+<div class="progress"></div>
+<div class="hint">← → or space to navigate</div>
+
+<script>
+  (function(){
+    var slides = Array.prototype.slice.call(document.querySelectorAll('.slide'));
+    var dotsWrap = document.querySelector('.dots');
+    var progress = document.querySelector('.progress');
+    var fill = document.querySelector('.topbar .fill');
+    var current = 0;
+
+    slides.forEach(function(s, i){
+      var d = document.createElement('span');
+      dotsWrap.appendChild(d);
+      s.setAttribute('data-num', String(i + 1).padStart(2, '0'));
+    });
+    var dots = Array.prototype.slice.call(dotsWrap.children);
+
+    function render(){
+      slides.forEach(function(s, i){ s.classList.toggle('active', i === current); });
+      dots.forEach(function(d, i){ d.classList.toggle('active', i === current); });
+      progress.textContent = (current + 1) + ' / ' + slides.length;
+      fill.style.width = (((current + 1) / slides.length) * 100) + '%';
+    }
+
+    function go(delta){
+      var next = current + delta;
+      if (next < 0 || next >= slides.length) return;
+      current = next;
+      render();
+    }
+
+    window.addEventListener('keydown', function(e){
+      if (['ArrowRight','ArrowDown','PageDown',' '].indexOf(e.key) !== -1){
+        e.preventDefault();
+        go(1);
+      } else if (['ArrowLeft','ArrowUp','PageUp'].indexOf(e.key) !== -1){
+        e.preventDefault();
+        go(-1);
+      }
+    });
+
+    render();
+  })();
+</script>
+
+</body>
+</html>
